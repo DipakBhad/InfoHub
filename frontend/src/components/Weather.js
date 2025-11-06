@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+const API_BASE_URL = "https://infohub-xp99.onrender.com";
 
 function Weather() {
   const [city, setCity] = useState("");
@@ -13,7 +14,7 @@ function Weather() {
     setError("");
     setData(null);
     try {
-      const res = await axios.get(`http://localhost:5000/api/weather?city=${city}`);
+      const res = await axios.get(`${API_BASE_URL}/api/weather?city=${city}`);
       setData(res.data);
     } catch {
       setError("City not found or API error");

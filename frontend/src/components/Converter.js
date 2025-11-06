@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+const API_BASE_URL = "https://infohub-xp99.onrender.com";
 
 function Converter() {
   const [amount, setAmount] = useState("");
@@ -12,7 +13,7 @@ function Converter() {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/convert?amount=${amount}&to=${currency}`
+        `${API_BASE_URL}/api/convert?amount=${amount}&to=${currency}`
       );
       setResult(res.data.converted);
     } catch {

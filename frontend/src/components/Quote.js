@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+const API_BASE_URL = "https://infohub-xp99.onrender.com";
 
 function Quote() {
   const [quote, setQuote] = useState("");
@@ -7,7 +8,7 @@ function Quote() {
 
   const fetchQuote = async () => {
     setLoading(true);
-    const res = await axios.get("http://localhost:5000/api/quote");
+    const res = await axios.get("${API_BASE_URL}/api/quote");
     setQuote(res.data.quote);
     setLoading(false);
   };
